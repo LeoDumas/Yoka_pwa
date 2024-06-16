@@ -1,6 +1,7 @@
 export interface ProductData {
     product: {
         abbreviated_product_name: string;
+        product_name?: string
         brands: string;
         brands_imported: string;
         nutriscore_data: nutriscore_data;

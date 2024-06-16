@@ -168,9 +168,11 @@ function App() {
                                 <div className="container mx-auto px-4">
                                     <div className="md:flex flex-col md:flex-row">
                                         <div className="flex flex-col md:flex-row justify-center items-center mb-6 md:mb-0">
-                                            <img className="h-48 object-contain md:w-48 mb-4 md:mb-0 md:mr-6" src={productData.product.image_url} alt={`product-image-${productData.product.abbreviated_product_name}`} />
+                                        <img className="h-48 object-contain md:w-48 mb-4 md:mb-0 md:mr-6" src={productData.product.image_url} alt={`product-image-${productData.product.abbreviated_product_name || productData.product.product_name}`}/>
                                             <div className="flex flex-col justify-center">
-                                                <h2 className="uppercase tracking-wide text-sm text-indigo-500 font-semibold text-center md:text-left">{productData.product.abbreviated_product_name}</h2>
+                                            <h2 className="uppercase tracking-wide text-sm text-indigo-500 font-semibold text-center md:text-left">
+                                                {productData.product.abbreviated_product_name || productData.product.product_name}
+                                            </h2>
                                                 <p className="mt-2 text-black/45 text-sm text-center md:text-left">{productData.product.brands}</p>
                                                 <p className={`mt-2 text-center md:text-left ${getScoreColor(productData.product.nutriscore_data.score)}`}>
                                                     Score : {productData.product.nutriscore_data.score}/100
