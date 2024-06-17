@@ -1,30 +1,34 @@
-# React + TypeScript + Vite
+# Yuka Clone - Progressive Web Application (PWA)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+This project is a clone of the popular Yuka application, developed as a progressive web application (PWA) using modern web technologies such as Vite.js, React.js, TypeScript, and Tailwind CSS.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Yuka is an application that allows users to scan barcodes of food and cosmetic products to get detailed information about their composition and health impact. This clone aims to replicate the main features of Yuka in a smooth and responsive web experience.
 
-## Expanding the ESLint configuration
+## Preview
+https://github.com/LeoDumas/Yoka_pwa/assets/108400694/b6e7f514-8511-47b1-8a53-6e173700503f
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+- Barcode scanning for food
+- Display of detailed information about scanned products
+- Product rating based on composition and health impact
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Technologies Used
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Vite.js: An ultra-fast build tool for modern web applications
+- React.js: A popular JavaScript library for building user interfaces
+- TypeScript: A typed superset of JavaScript that improves code quality
+- Tailwind CSS: A utility-first CSS framework for rapid and customizable development
+
+## Prerequisites
+
+- Node.js
+- npm
+
+## How to use 
+
+1. Go to https://leodumas.github.io/Yoka_pwa/ on your phone
+2. Add it to your home screen or use it directly on your browser
+3. That's it (PWA Magic)
