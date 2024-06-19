@@ -1,5 +1,6 @@
 export interface ProductData {
     product: {
+        code: string;
         abbreviated_product_name: string;
         product_name?: string
         brands: string;

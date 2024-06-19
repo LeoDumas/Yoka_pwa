@@ -42,15 +42,15 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ productData }) => {
                     </p>
                     <p className="mt-2 flex items-center gap-x-2">
                         <FaLeaf className="mr-2" />
-                        Fibres : {productData.product.nutriscore_data.fiber}
+                        Fibres : {productData.product.nutriscore_data.fiber}g
                     </p>
                     <p className="mt-2 flex items-center gap-x-2">
                         <FaEgg className="mr-2" />
-                        Protéines : {productData.product.nutriscore_data.proteins}
+                        Protéines : {productData.product.nutriscore_data.proteins}g
                     </p>
                     <p className="mt-2 flex items-center gap-x-2">
                         <FaBacon className="mr-2" />
-                        Graisses saturées : {productData.product.nutriscore_data.saturated_fat}
+                        Graisses saturées : {productData.product.nutriscore_data.saturated_fat}g
                     </p>
                     <p className="mt-2 flex items-center gap-x-2">
                         <FaCubes className="mr-2" />

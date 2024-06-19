@@ -35,14 +35,57 @@ function App() {
     async function handleSearch(code: string) {
         if (code !== "") {
             setIsLoading(true);
-            try {
-                const data = await getProductData(code);
-                setProductData(data);
-                setError(null);
-            } catch (error) {
-                console.error("Une erreur s'est produite :", error);
-                setProductData(null);
-                setError("Une erreur s'est produite lors de la récupération des données.");
+            // Check if user connected to internet
+            if (!navigator.onLine) {
+                // if not connected to the internet, use data from the localStorage
+                const itemsFromStorage = localStorage.getItem("items");
+                if (itemsFromStorage) {
+                    try {
+                        const existingItems = JSON.parse(itemsFromStorage);
+                        if (Array.isArray(existingItems)) {
+                            const existingItem = existingItems.find((item: ProductData) => item.product.code === code);
+                            if (existingItem) {
+                                setProductData(existingItem);
+                                setError(null);
+                            } else {
+                                setProductData(null);
+                                setError("Produit non trouvé dans le cache hors ligne.");
+                            }
+                        }
+                    } catch (error) {
+                        console.error("Erreur lors de l'analyse des données du localStorage :", error);
+                    }
+                } else {
+                    setProductData(null);
+                    setError("Aucun produit trouvé dans le cache hors ligne.");
+                }
+            } else {
+                // If online, make a API request
+                try {
+                    const data = await getProductData(code);
+                    setProductData(data);
+                    // Add product to the localStorage
+                    const itemsFromStorage = localStorage.getItem("items");
+                    let existingItems = [];
+                    if (itemsFromStorage) {
+                        existingItems = JSON.parse(itemsFromStorage);
+                    }
+                    // Check if product already exist in the localStorage
+                    const existingItemIndex = existingItems.findIndex((item: ProductData) => item.product.code === code);
+                    if (existingItemIndex !== -1) {
+                        // if exists, update product's data
+                        existingItems[existingItemIndex] = data;
+                    } else {
+                        // otherwise, add it to the localStorage
+                        existingItems.push(data);
+                    }
+                    localStorage.setItem("items", JSON.stringify(existingItems));
+                    setError(null);
+                } catch (error) {
+                    console.error("Une erreur s'est produite :", error);
+                    setProductData(null);
+                    setError("Une erreur s'est produite lors de la récupération des données.");
+                }
             }
             setIsLoading(false);
         }

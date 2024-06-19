@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { BrowserMultiFormatReader, DecodeHintType, Result } from '@zxing/library';
 
+// Zxing is used to read the barcode
 interface ZxingOptions {
     hints?: Map<DecodeHintType, unknown>;
     constraints?: MediaStreamConstraints;
@@ -13,6 +14,7 @@ const useZxing = ({
     constraints = {
         audio: false,
         video: {
+            // Use the back camera
             facingMode: 'environment',
         },
     },
