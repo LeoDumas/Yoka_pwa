@@ -21,7 +21,7 @@ const HistoricPage: React.FC = () => {
     };
 
     if (selectedProduct) {
-        return <ProductModal item={selectedProduct} onClose={() => setSelectedProduct(null)} />;
+        return <ProductModal productData={selectedProduct} onClose={() => setSelectedProduct(null)} />;
     }
 
     return (
