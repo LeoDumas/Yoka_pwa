@@ -23,8 +23,8 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ productData }) => {
                         <p className={`mt-2 text-center md:text-left ${getScoreColor(productData.product.nutriscore_data.score)}`}>
                             Score : {productData.product.nutriscore_data.score}/100
                         </p>
-                        <p className={`mt-2 text-center md:text-left ${getNutriScoreColor(productData.product.nutriscore_data.grade)}`}>
-                            Nutri-Score : {productData.product.nutriscore_data.grade.toUpperCase()}
+                        <p className={`mt-2 text-center md:text-left ${getNutriScoreColor(productData.product?.nutriscore_data?.grade)}`}>
+                            Nutri-Score : {productData.product?.nutriscore_data?.grade?.toUpperCase() || 'Non disponible'}
                         </p>
                     </div>
                 </div>

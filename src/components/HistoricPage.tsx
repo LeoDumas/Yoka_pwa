@@ -42,7 +42,7 @@ const HistoricPage: React.FC = () => {
                         <div className='relative'>
                             <p className=' uppercase tracking-wide text-sm text-indigo-500 font-semibold'>{item.product.product_name}</p>
                             <p className={`mt-2 ${getNutriScoreColor(item.product.nutriscore_data.grade)}`}>
-                                Nutri-Score : {item.product.nutriscore_data.grade.toUpperCase()}
+                                Nutri-Score : {item.product?.nutriscore_data?.grade?.toUpperCase()|| 'Non disponible'}
                             </p>
                             <button
                                 className=' absolute bottom-0 bg-black text-white py-1 px-3 rounded-md'
